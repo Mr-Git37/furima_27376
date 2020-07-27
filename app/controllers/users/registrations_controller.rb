@@ -14,6 +14,38 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+
+  def new
+    @user= User.new
+  end
+
+  # def user_params
+  #   params.permit(:name, :image, :text) 
+  # end
+
+  def create
+    @user = User.new(sign_up_params)
+    if @user.valid?
+      User.create(sign_up_params)
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+# if @user.valid?
+#   validates :nickname, :firstname, :lastname, :firstfurigana, :lastfurigana, :birthday, presence: true
+# else
+#   redirect_to root_path
+# end
+
+
+  private
+  # def sign_up_params
+  #   params.require(:user).permit(:name, :image, :text)
+  # end
+
+
   # GET /resource/edit
   # def edit
   #   super
