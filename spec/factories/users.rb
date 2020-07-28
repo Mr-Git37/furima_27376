@@ -5,6 +5,11 @@ FactoryBot.define do
     email                 {"kkk@gmail.com"}
     password              {"00000000"}
     password_confirmation {"00000000"}
+    firstname             {"foofoo"}
+    lastname              {"barbar"}
+    firstfurigana         {"aaaaaa"}
+    lastfurigana          {"bbbbbb"}
+    birthday              {"00000000"}
   end
 
 end
