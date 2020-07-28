@@ -8,10 +8,8 @@
     </h1>
   </div>
   <%= render partial: 'devise/shared/error_messages', locals: {model: f.object }%>
-  <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 <% if user_signed_in? && current_user.id == @user.user_id %>
   <% end %>
-  <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
   <div class="form-group">
     <div class='form-text-wrap'>
