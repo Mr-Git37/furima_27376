@@ -17,6 +17,6 @@ class User < ApplicationRecord
     validates :birthday
   end
   
-  validates :password, format: { with: α,
+  validates :password, format: { with: place,
     message: "Password Include both letters and numbers" }
 end
