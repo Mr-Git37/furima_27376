@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  number = /\A[ぁ-んァ-ン一-龥]/
+  plus = /\A[ァ-ヶー－]+\z/
+  place = /\A[a-zA-Z0-9]+\z/
+
   with_options presence: true do
-    number = /\A[ぁ-んァ-ン一-龥]/
-    plus = /\A[ァ-ヶー－]+\z/
-    place = /\A[a-zA-Z0-9]+\z/
-    
     validates :nickname
     validates :firstname, format: { with: number, message: "First name Full-width characters"}
     validates :lastname, format: { with: number, message: "Last name Full-width characters"}
