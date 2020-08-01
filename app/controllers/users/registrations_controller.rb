@@ -34,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 # if @user.valid?
-#   validates :nickname, :firstname, :lastname, :firstfurigana, :lastfurigana, :birthday, presence: true
+#   validates :nickname, :firstname :lastname, :firstfurigana, :lastfurigana, :birthday, presence: true
 # else
 #   redirect_to root_path
 # end
