@@ -1,4 +1,4 @@
-class Article < ApplicationRecord
+class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
 
@@ -8,5 +8,9 @@ class Article < ApplicationRecord
   #選択が「--」のままになっていないか
   with_options numericality: { other_than: 1 } do
     validates :genre_id
+    validates :condition_id
+    validates :deliveryfee_id
+    validates :prefecture_id
+    validates :scheduleddelivery_id
   end
 end
