@@ -1,12 +1,9 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :move_to_index, except: :index
-  # def index
-  # end
 
   def index
     @items = Item.order('created_at DESC').limit(5)
-    # binding.pry
   end
 
   def new
