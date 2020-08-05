@@ -1,5 +1,5 @@
 <li class='list'>
-        <%# <%= link_to ('index', item_path(@items) do %>  
+        <%= link_to item_path(@items) do %>
         <div class='item-img-content'>
           <% if item.image.present? %>
             <%= image_tag item.image, class: "item-img" %>
@@ -23,5 +23,5 @@
             </div>
           </div>
         </div>
-        <%# <% end %> 
+        <% end %> 
       </li>
