@@ -6,8 +6,8 @@ $(function(){
         var result = s / 10;
         var profit = s - result;
         console.log(s)
-    $('#add-tax-price').append(result);
-    $('#profit').append(profit);
+    $('#add-tax-price').text(result);
+    $('#profit').text(profit);
     console.log(profit)
   });
 });
