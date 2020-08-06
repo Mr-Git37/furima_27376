@@ -19,4 +19,6 @@ class User < ApplicationRecord
   
   validates :password, format: { with: place,
     message: "Include both letters and numbers" }
+
+  has_many :items
 end
