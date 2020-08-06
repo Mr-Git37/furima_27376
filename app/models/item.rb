@@ -1,6 +1,11 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :deliveryfee
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :scheduleddelivery
+
   has_one_attached :image
 
   #空の投稿を保存できないようにする
@@ -25,4 +30,6 @@ class Item < ApplicationRecord
   validates :price, 
   numericality: {greater_than_or_equal_to: 300 , less_than_or_equal_to: 9999999 , message: "Out of setting range"}
   
+  belongs_to :user
 end
+
