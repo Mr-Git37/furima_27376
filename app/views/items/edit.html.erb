@@ -7,10 +7,10 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with local: true do |f| %>
+    <%= form_with model:@item, local: true do |f| %>
 
-<%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
+      <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+          <%# render 'shared/error_messages', model: f.object %>
     <%# 出品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -50,13 +50,13 @@ app/assets/stylesheets/items/new.css %>
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box"} %>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box"})%>
           
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:condition_id, Condition.all, :id, :name, {class:"select-box"}) %>
+        <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"select-box"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
@@ -121,18 +121,18 @@ app/assets/stylesheets/items/new.css %>
     <%# 注意書き %>
     <div class="caution">
       <p class="sentence">
-        <%=link_to"#", 禁止されている出品、%>
-        <%=link_to"#", 行為%>
+        <%=link_to "禁止されている出品","#"%>
+        <%=link_to "行為","#"%>
         を必ずご確認ください。
       </p>
       <p class="sentence">
         またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <%=link_to"#", 偽ブランドの販売%>
+        <%=link_to"偽ブランドの販売","#" %>
         は犯罪であり処罰される可能性があります。
       </p>
       <p class="sentence">
         また、出品をもちまして
-        <%=link_to"#", 加盟店規約 %>
+        <%=link_to "加盟店規約","#" %>
         に同意したことになります。
       </p>
     </div>
@@ -140,7 +140,7 @@ app/assets/stylesheets/items/new.css %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', "#", class:"back-btn" %>
+      <%=link_to 'もどる', item_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
