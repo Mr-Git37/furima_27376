@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :move_to_index, except: [:index, :show]
-  before_action :item_find, only: [:show, :edit]
+  before_action :set_item, only: [:show, :edit]
 
   def index
     @items = Item.order('created_at DESC').limit(5)
@@ -33,7 +33,13 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
+  end
 
 
   private
@@ -49,7 +55,7 @@ end
     end
   end
   
-  def item_find
+  def set_item
     @item = Item.find(params[:id])
   end
 end
