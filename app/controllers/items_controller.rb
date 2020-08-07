@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :move_to_index, except: [:index, :show]
+  before_action :item_find, only: [:show, :edit]
 
   def index
     @items = Item.order('created_at DESC').limit(5)
@@ -20,11 +21,9 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
@@ -48,5 +47,9 @@ end
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+  
+  def item_find
+    @item = Item.find(params[:id])
   end
 end
