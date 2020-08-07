@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   root  'items#index'
   resources :items
     resources :articles,only: :show
+  
+  resources :orders, only: :create
 end
 
