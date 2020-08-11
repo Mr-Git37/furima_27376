@@ -6,9 +6,15 @@ RSpec.describe Item, type: :model do
 
     before do
       @item = build(:item)
+      @item.image = fixture_file_upload("#{Rails.root}/public/images/test.png")
     end
 
+    it "is valid with a image, title, text, genre_id, condition_id, deliveryfee_id, prefecture_id, scheduleddelivery_id, price" do
+      expect(@item).to be_valid
+    end 
+
     it "is invalid without a image" do
+
       @item.image = nil
       @item.valid?
       expect(@item.errors[:image]).to include("can't be blank")

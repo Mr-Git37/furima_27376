@@ -13,7 +13,6 @@ class UserItem
   end
 
     def save
-      # Order.create(postalcode: postalcode, prefecture_id: prefecture_id, city: city, number: number, buildingname: buildingname, phonenumber: phonenumber, item_id: item_id, user_id: user_id)
       Address.create(postalcode: postalcode, prefecture_id: prefecture_id, city: city, number: number, buildingname: buildingname, phonenumber: phonenumber, item_id: item_id)
       Order.create(item_id: item_id, user_id: user_id)
     end
