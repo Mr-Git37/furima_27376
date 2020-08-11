@@ -39,8 +39,8 @@ class OrdersController < ApplicationController
   end
 
   def index_order2
-    if user_signed_in? && current_user.id != @item.user_id
-    redirect_to root_path 
+    if  @item.itemstatus_id == 0
+        redirect_to root_path 
   end
 end
 
