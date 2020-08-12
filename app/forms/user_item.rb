@@ -8,7 +8,6 @@ class UserItem
     validates :prefecture_id
     validates :city
     validates :number
-    validates :buildingname
     validates :phonenumber
   end
 

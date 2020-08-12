@@ -38,12 +38,6 @@ describe UserItem do
       expect(@user_item.errors[:number]).to include("can't be blank")
     end
 
-    it "is invalid without a buildingname" do
-      @user_item.buildingname = nil
-      @user_item.valid?
-      expect(@user_item.errors[:buildingname]).to include("can't be blank")
-    end
-
     it "is invalid without a phonenumber" do
       @user_item.phonenumber = nil
       @user_item.valid?
